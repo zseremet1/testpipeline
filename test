@@ -1,0 +1,18 @@
+trigger: none
+
+pool:
+  name: Diplomat
+  demands:
+    - Agent.Name -equals build-front-agent-01
+
+steps:
+- script: |
+    echo "✅ Test uspješan!"
+    echo "🖥 Agent: $(Agent.Name)"
+    echo "📦 Node verzija:"
+    node -v
+    echo "📦 NPM verzija:"
+    npm -v
+    echo "🎯 Node path: $(which node)"
+    echo "🎯 NPM path: $(which npm)"
+  displayName: '🧪 Minimalni testni build na build-front-agent-01'
